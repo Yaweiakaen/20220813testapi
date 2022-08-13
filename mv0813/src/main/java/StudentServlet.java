@@ -31,13 +31,18 @@ public class StudentServlet extends HttpServlet {
 		// TODO Auto-generated method stub
   		//String jsonString = "{\"name\":\"Maxsu\", \"age\":24}"; 
 		String jsonString=request.getParameter("stuData");
-		//System.out.println(jsonString);
+		System.out.println(jsonString);
 	      GsonBuilder builder = new GsonBuilder(); 
 	     // builder.setPrettyPrinting();
 
 	      Gson gson = builder.create(); 
-	      Student student = gson.fromJson(jsonString, Student.class); 		
-		  response.getWriter().append(student.toString());
+	      Student[ ] student = gson.fromJson(jsonString, Student[ ].class); 	
+	      String msg="";
+	      for(Student s : student) {
+	    	  msg+=s.toString()+"<br/>";
+	      }
+	      response.setContentType("text/html;charset=utf-8");
+		  response.getWriter().append(msg);
 	}
 
 	/**
