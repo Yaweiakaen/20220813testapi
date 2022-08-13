@@ -5,7 +5,7 @@ import javax.ws.rs.core.MediaType;
 
 @Path("/hi")
 public class HelloWorldRestService {
-//
+
     @GET
     @Produces(MediaType.TEXT_PLAIN + ";charset=UTF-8")
     public String getHelloMessage(){
